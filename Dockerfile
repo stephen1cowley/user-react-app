@@ -24,4 +24,4 @@ EXPOSE 3000
 
 # Command to run both the sync_files.sh script and npm start
 # /app/sync_files.sh will run in the background with `&`, and npm start will run in the foreground.
-CMD ["/bin/bash", "-c", "/app/sync_files.sh & npm start"]
+CMD ["/bin/sh", "-c", "/app/sync_files.sh"]
