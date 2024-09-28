@@ -1,17 +1,30 @@
 #!/bin/bash
 
 # Configuration
-S3_BUCKET="s3://test-stack-bucket-program-agent/react-app-src/"
+S3_BUCKET_URL="https://test-stack-bucket-program-agent.s3.eu-west-2.amazonaws.com"
 TARGET_DIR="/app/src"
 POLL_INTERVAL=5 # seconds
 
-# Infinite loop to check for updated files in S3
+# Files you want to sync (e.g., React build files)
+FILES=("react-app-src/App.js" "react-app-src/App.css")
+
+# Infinite loop to check for updated files
 while true; do
-    echo "Checking for updates in S3..."
+    echo "Checking for updates from S3 bucket..."
 
-    # Sync updated files from S3 to the local directory inside the container
-    aws s3 sync s3://$S3_BUCKET/ $TARGET_DIR
+    # Loop through the files you want to sync
+    for file in "${FILES[@]}"; do
+        echo "Fetching $file from $S3_BUCKET_URL/$file"
+        
+        # Fetch the file and save it to the target directory
+        curl -s "$S3_BUCKET_URL/$file" -o "$TARGET_DIR/$file" || echo "Failed to fetch $file"
+        
+        # Optionally, use wget instead of curl:
+        # wget -q "$S3_BUCKET_URL/$file" -O "$TARGET_DIR/$file" || echo "Failed to fetch $file"
+    done
 
-    # Wait for the next check
+    echo "Files synced. Waiting for the next poll..."
+    
+    # Wait before checking again
     sleep $POLL_INTERVAL
 done
