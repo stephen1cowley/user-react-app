@@ -15,7 +15,9 @@ RUN npm install
 COPY . .
 
 # Make the sync script executable
+RUN ls -la /app
 RUN chmod +x /app/sync_files.sh
+RUN ls -la /app
 
 # Expose the port the app runs on (e.g., 3000 for React apps)
 EXPOSE 3000
