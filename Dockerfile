@@ -17,6 +17,13 @@ COPY . .
 # Make the sync script executable
 RUN chmod +x /app/sync_files.sh
 
+# Install AWS CLI (if not included in the base image)
+RUN apt-get update && \
+    apt-get install -y unzip && \
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+    unzip awscliv2.zip && \
+    ./aws/install
+
 # Expose the port the app runs on (e.g., 3000 for React apps)
 EXPOSE 3000
 
