@@ -4,6 +4,9 @@ FROM node:18-alpine
 # Set working directory
 WORKDIR /app
 
+# Install curl
+RUN apk add --no-cache curl
+
 # Copy package.json and package-lock.json
 # This allows Docker to cache npm install step, improving build times when dependencies haven't changed
 COPY package*.json ./
