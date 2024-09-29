@@ -6,8 +6,8 @@ TARGET_DIR="/app/src"
 POLL_INTERVAL=1 # seconds
 
 # Files you want to sync (e.g., React build files)
-FILE1="react-app-src/App.js"
-FILE2="react-app-src/App.css"
+FILE1="uploads/admin2/App.js"
+FILE2="uploads/admin2/App.css"
 
 # Fetch the initial file and save it as a baseline
 curl -s "$S3_BUCKET_URL/$FILE1" -o "$TARGET_DIR/App.js" || echo "Failed to fetch $FILE1"
