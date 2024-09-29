@@ -3,7 +3,7 @@
 # Configuration
 S3_BUCKET_URL="https://test-stack-bucket-program-agent.s3.eu-west-2.amazonaws.com"
 TARGET_DIR="/app/src"
-POLL_INTERVAL=1 # seconds
+POLL_INTERVAL=2 # seconds
 
 # Files you want to sync (e.g., React build files)
 FILE1="uploads/admin3/App.js"
