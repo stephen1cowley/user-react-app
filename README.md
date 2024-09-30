@@ -1,4 +1,4 @@
-# Programming Agent UI
+# User React App (Programming Agent)
 
 ## Description
 
