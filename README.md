@@ -24,12 +24,12 @@ See [Programming Agent Server](https://github.com/stephen1cowley/programming-age
 Firstly, to correctly sync the React app files of the docker image with your S3 container, change the `S3_BUCKET_URL` variable and `FILE1` nad `FILE2` variables in `sync_files.sh` to point to the name of your own S3 bucket, containing the React app `src` files.
 
 To build the docker image:
-```
+```bash
 docker build -t programming-agent-image .
 ```
 
 To run the docker image:
-```
+```bash
 docker run -d -p 3000:3000 programming-agent-image
 ```
 
