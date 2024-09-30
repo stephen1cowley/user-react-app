@@ -5,15 +5,15 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          Edit <code>src/App.js</code> and save to reload~~!!!!!!
+          Base User React Project to be editted by the Programming Agent 
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://github.com/stephen1cowley/programming-agent-server"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Main project repo
         </a>
       </header>
     </div>
